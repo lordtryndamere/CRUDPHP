@@ -38,8 +38,10 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
-
     </ul>
-
+    <form class="form-inline my-2 my-lg-0">
+     
+    <a class="dropdown-item" href="logout.php">Logout</a>
+    </form>
   </div>
 </nav>
