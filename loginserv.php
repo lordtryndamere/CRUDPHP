@@ -1,5 +1,6 @@
 <?php
 include('db.php');
+$error='';
 
 if(isset($_POST['submit'])) {
 if(empty($_POST['email']) || empty($_POST['password'])){
@@ -10,7 +11,7 @@ else {
     $pass = $_POST['password'];
     $query = "SELECT * FROM users WHERE password='$pass' AND email='$email'";
     $res = mysqli_query($conn,$query);
-    $rows = mysqli_num_rows($query);
+    $rows = mysqli_num_rows($res);
     if($rows==1) {
         header("Location:index.php");
     }

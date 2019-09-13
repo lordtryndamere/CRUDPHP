@@ -49,7 +49,7 @@
 
 <div class="login">
 <h1 align="center"> Login </h1>
-<form action="loginserv.php"  method="POST"  style="text-align:center;">
+<form action=""  method="POST"  style="text-align:center;">
 <input type="text" placeholder="Email" id="email"  name="email"><br/><br/>
 <input type="password" placeholder="Password" id="password"  name="password"><br/><br/>
 <input type="submit" value="Login" name="submit">
