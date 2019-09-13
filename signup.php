@@ -1,4 +1,7 @@
-<?php  include('loginserv.php'); ?>
+
+
+
+<?php  include('signupserv.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,14 +14,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/18966cfd72.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
-    <title>Login</title>
+    <title>SignUp</title>
     <style>
-
-        body {
+       body {
             background-image: url("includes/dark.jpg");
             background-size: relative;
         }
-        .login{
+        .sigup{
             width: 360px;
             margin: 50px auto;
             border-radius: 10px;
@@ -27,6 +29,7 @@
             padding: 10px 40px  25px;
             margin-top: 70px;
             background-image: url("includes/blue.jpg");
+
 
         }
     input[type=text],input[type=password] {
@@ -55,25 +58,34 @@
     a {
   text-decoration: none;
   color: darkblue;
-  
 }
     </style>
 </head>
 <body>
     
 
-<div class="login">
-<h1 align="center"> Login </h1>
+<div class="sigup">
+<h1 align="center"> Signup </h1>
+<?php  if(isset($_SESSION['message'])) {    ?>
+            <div class="alert alert-<?= $_SESSION['message_type'] ?> alert-dismissible fade show" role="alert">
+                    <?= $_SESSION['message'] ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+
+        <?php 
+            session_unset();} ?>
 
 <form action=""  method="POST"  style="text-align:center;">
-<input type="text" placeholder="Email" id="email"  name="email" require autofocus><br/><br/>
-<input type="password" placeholder="Password" id="password"  name="password" require><br/><br/>
-<input type="submit" value="Login" name="submit">
-<a href="signup.php">SignUp</a>
-<span><?php  echo $error;  ?> </span>
+<input type="text" placeholder="Write Your Email" id="email"  name="email" require><br/><br/>
+<input type="password" placeholder="Write Your Password" id="password"  name="password"  autofocus><br/><br/>
+<input type="submit" value="Save " name="sign">
+<a href="login.php">Go To Home</a>
+
 </div>
 
 <?php  include('includes/footer.php') ?>
+
 </body>
 </html>
-
