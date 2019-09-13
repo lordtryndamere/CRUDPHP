@@ -57,6 +57,10 @@
   color: darkblue;
   
 }
+span  {
+    text-decoration: none;
+  color: darkblue;
+}
     </style>
 </head>
 <body>
@@ -69,7 +73,7 @@
 <input type="text" placeholder="Email" id="email"  name="email" require autofocus><br/><br/>
 <input type="password" placeholder="Password" id="password"  name="password" require><br/><br/>
 <input type="submit" value="Login" name="submit">
-<a href="signup.php">SignUp</a>
+<a href="signup.php">SignUp</a><br>
 <span><?php  echo $error;  ?> </span>
 </div>
 
