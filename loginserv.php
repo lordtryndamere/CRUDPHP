@@ -13,7 +13,7 @@ else {
     $res = mysqli_query($conn,$query);
     $rows = mysqli_num_rows($res);
     if($rows==1) {
-        header("Location:index.php");
+        header("Location:home.php");
     }
     else {
         $error = " Username or pasword is Invalidad";

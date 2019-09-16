@@ -23,7 +23,7 @@ if(isset($_POST['sign'])){
        
         $_SESSION['message']  = "User Created Successfully";
         $_SESSION['message_type']  = 'success';
-        //header('location: signup.php');  con este header evito que se envie varias veces
+        header('location: signup.php');  //con este header evito que se envie varias veces
         
     
        

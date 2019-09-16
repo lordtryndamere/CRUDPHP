@@ -9,6 +9,6 @@ if (isset($_GET['id'])) {
     $resul = mysqli_query($conn,$query);
     $_SESSION['message'] = 'Taks Removed Successfully';
     $_SESSION ['message_type'] = 'danger';
-    header("location:index.php");
+    header("location:home.php");
 
 }

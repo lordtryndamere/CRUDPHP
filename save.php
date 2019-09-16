@@ -11,7 +11,7 @@ if (isset($_POST['save_task'])) {
     $result =  mysqli_query($conn,$query);
     $_SESSION['message']  = "Task Save Successfully"; // de esta froma uso las variables od atos que se quedan en sesion
     $_SESSION['message_type']  = 'success';
-     header("location:index.php");
+     header("location:home.php");
     
 
 }

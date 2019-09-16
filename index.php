@@ -1,87 +1,83 @@
-<?php 
+<?php  include('loginserv.php'); ?>
 
-include('db.php');
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/18966cfd72.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <title>Login</title>
+    <style>
 
-<?php include('includes/header.php'); ?>
+        body {
+            background-image: url("includes/dark.jpg");
+            background-size: relative;
+        }
+        .login{
+            width: 360px;
+            margin: 50px auto;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            font:Cambria, "Hoefler Text", "Liberation Serif",Times,"Times New Roman",serif;
+            padding: 10px 40px  25px;
+            margin-top: 70px;
+            background-image: url("includes/blue.jpg");
+
+        }
+    input[type=text],input[type=password] {
+        width: 99%;
+        padding: 10px;
+        margin-top: 8px;
+        border: 1px solid #ccc;
+        padding-left: 5px;
+        font-size: 16px;
+        font-family:Cambria, "Hoefler Text", "Liberation Serif",Times,"Times New Roman",serif;
 
 
-<div class="contaier p-4">
+    }
 
-    <div class="row">
-        <div class="col-md-4">
-        <?php  if(isset($_SESSION['message'])) {    ?>
-            <div class="alert alert-<?= $_SESSION['message_type'] ?> alert-dismissible fade show" role="alert">
-                    <?= $_SESSION['message'] ?>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
+    input[type=submit] {
+        width:100%;
+        background-color: #009;
+        color:#fff;
+        border:2px solid #06f;
+        padding: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+    a {
+  text-decoration: none;
+  color: darkblue;
+  
+}
+span  {
+    text-decoration: none;
+  color: darkblue;
+}
+    </style>
+</head>
+<body>
+    
 
-        <?php 
-            session_unset();} ?>
-            <div class="card card-body">
-                <form action="save.php" method="POST">
+<div class="login">
+<h1 align="center"> Login </h1>
 
-                <div class="form-group">
-                    <input  type="text"  name="title"  class="form-control"   
-                    placeholder="Task Title"  autofocus required >
-                </div>
-                <div class="form-group">
-                    <textarea name="description"  rows="2" class="form-control"  placeholder="Type description" required></textarea>
-                </div>
-                <input type="submit" class="btn btn-outline-success   btn-block" name="save_task"  value="Save Task">
-                </form>
-            </div>
-
-            </div>
-            <div class="col-md-8">
-                <table class="table  table-dark table-bordered table-hover "> 
-                
-                    <thead class="thead-dark">
-                        <tr>
-                           <th scope="col">Title</th>
-                           <th scope="col">Description</th>
-                           <th scope="col">Create At</th>
-                           <th scope="col">Actions</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                        $query = "SELECT * FROM tasks";
-                        $result_task = mysqli_query($conn,$query);
-                        while ($row =  mysqli_fetch_array($result_task)) {  ?>
-                            <tr>
-                                <td><?php echo $row['title'] ?></td>
-                                <td><?php echo $row['description'] ?></td>
-                                <td><?php echo $row['create_at'] ?></td>
-                                <td>
-                                <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-primary">
-                                <i class="fas fa-edit"></i>                 
-                                </a>
-                                <a href="delete.php?id=<?php echo $row['id']?>" class="btn btn-danger">
-                                <i class="fas fa-trash-alt"></i>
-                                </a>                                   
-                                </td>
-                            </tr>
-
-                        <?php   }?>
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-
+<form action=""  method="POST"  style="text-align:center;">
+<input type="text" placeholder="Email" id="email"  name="email" require autofocus><br/><br/>
+<input type="password" placeholder="Password" id="password"  name="password" require><br/><br/>
+<input type="submit" value="Login" name="submit">
+<a href="signup.php">SignUp</a><br>
+<span><?php  echo $error;  ?> </span>
 </div>
 
+<?php  include('includes/footer.php') ?>
+</body>
+</html>
 
-
-
-
-
-
-
-
-
-
-<?php include ('includes/footer.php'); ?>

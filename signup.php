@@ -81,7 +81,7 @@
 <input type="text" placeholder="Write Your Email" id="email"  name="email" require><br/><br/>
 <input type="password" placeholder="Write Your Password" id="password"  name="password"  autofocus><br/><br/>
 <input type="submit" value="Save " name="sign">
-<a href="login.php">Go To Home</a><br>
+<a href="index.php">Go To Home</a><br>
 <span><?php  echo $error2;  ?> </span><br>
 <span><?php  echo $error3;  ?> </span><br>
 
